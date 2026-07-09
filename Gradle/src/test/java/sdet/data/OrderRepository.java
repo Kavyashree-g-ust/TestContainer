@@ -66,6 +66,7 @@ public class OrderRepository {
             }
 
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new IllegalStateException("Could not save order test data", e);
         }
     }

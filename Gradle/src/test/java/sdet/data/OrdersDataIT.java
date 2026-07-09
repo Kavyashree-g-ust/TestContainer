@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static sdet.data.OrderBuilder.anOrder;
 
-@Testcontainers
-@Tag("integration")
+@Testcontainers(disabledWithoutDocker = true)
+//@Tag("integration")
 public class OrdersDataIT {
 
     @Container

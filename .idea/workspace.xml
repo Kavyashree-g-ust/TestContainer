@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e070b34-8bff-4936-afca-9415ebfb2ac8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradle/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrdersDataIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrdersDataIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/W6D3TestDataBuilderStructureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/W6D3TestDataBuilderStructureTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V1__schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V1__schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V2__Seed_reference_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V2__seed_reference_data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
