@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e070b34-8bff-4936-afca-9415ebfb2ac8" name="Changes" comment="" />
+    <list default="true" id="1e070b34-8bff-4936-afca-9415ebfb2ac8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V1_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V1__schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V2_seed_reference_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V2__Seed_reference_data.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
