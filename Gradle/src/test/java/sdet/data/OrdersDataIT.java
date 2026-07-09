@@ -1,76 +1,111 @@
 package sdet.data;
 
-
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import org.testcontainers.mysql.MySQLContainer;
-import org.testcontainers.utility.DockerImageName;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static sdet.data.OrderBuilder.anOrder;
 
-@Testcontainers(disabledWithoutDocker = true)
-class OrdersDataIT {
+@Testcontainers
+@Tag("integration")
+public class OrdersDataIT {
+
     @Container
-    static MySQLContainer mySQL = new MySQLContainer(DockerImageName.parse("mysql:8.0"))
-            .withDatabaseName("retail_test")
-            .withUsername("root")
-            .withPassword("root");
+    static MySQLContainer<?> mysql =
+            new MySQLContainer<>("mysql:8.4")
+                    .withDatabaseName("retail_test")
+                    .withUsername("root")
+                    .withPassword("root");
 
     static OrderRepository repository;
     static OrderFactory factory;
 
     @BeforeAll
-    static void migrateSchema(){
+    static void migrateSchema() {
         Flyway.configure()
-                .dataSource(mySQL.getJdbcUrl(), mySQL.getUsername(), mySQL.getPassword())
+                .dataSource(
+                        mysql.getJdbcUrl(),
+                        mysql.getUsername(),
+                        mysql.getPassword()
+                )
                 .locations("classpath:db/migration")
                 .load()
                 .migrate();
 
-        repository = new OrderRepository(mySQL.getJdbcUrl(), mySQL.getUsername(), mySQL.getPassword());
+        repository = new OrderRepository(
+                mysql.getJdbcUrl(),
+                mysql.getUsername(),
+                mysql.getPassword()
+        );
+
         factory = new OrderFactory(repository);
     }
 
     @BeforeEach
-    void reset(){
+    void resetMutableTables() {
         repository.resetMutableTables();
     }
 
     @Test
-    void flywaySeedingReferenceDataButNoPerTestOrders(){
-        assertEquals(4,repository.referenceStatusCount());
-        assertEquals(0,repository.count());
+    void flywaySeedsReferenceDataButNoPerTestOrders() {
+        assertEquals(
+                4,
+                repository.referenceStatusCount(),
+                "Reference statuses are seeded by migration"
+        );
+
+        assertEquals(
+                0,
+                repository.count(),
+                "Per-test order rows should not come from migrations"
+        );
     }
 
     @Test
-    void persistedBuilderDataAgainstIsolatedMysql(){
-        long id = factory.persisted(OrderBuilder.anOrder().withQuantity(3));
+    void factoryPersistsBuilderDataAgainstIsolatedMySql() {
+        long id = factory.persisted(
+                anOrder()
+                        .withQuantity(3)
+        );
 
-        assertTrue(id>0);
-        assertEquals(1,repository.count());
+        assertTrue(id > 0);
+        assertEquals(1, repository.count());
     }
 
     @Test
-    void countsOnlyPersistedTestOrders(){
-        factory.persisted(OrderBuilder.anOrder());
-        factory.persisted(OrderBuilder.anOrder().withSku("SKU-2").withQuantity(2));
+    void countsOnlyThisTestsOrders() {
+        factory.persisted(anOrder());
 
-        assertEquals(2,repository.count());
+        factory.persisted(
+                anOrder()
+                        .withSku("SKU-RET-202")
+                        .withQuantity(2)
+        );
+
+        assertEquals(2, repository.count());
     }
 
     @Test
-    void resetMakesTestOrderIndependent(){
-        assertEquals(0,repository.count());
-        factory.persisted(OrderBuilder.anOrder().refunded());
+    void resetMakesTestsOrderIndependent() {
+        assertEquals(
+                0,
+                repository.count(),
+                "Previous tests must not leak rows into this test"
+        );
 
-        assertEquals(1,repository.count());
-        assertEquals(1,repository.countByStatus("REFUNDED"));
+        factory.persisted(
+                anOrder()
+                        .refunded()
+        );
+
+        assertEquals(1, repository.count());
+        assertEquals(1, repository.countByStatus("REFUNDED"));
     }
-
 }

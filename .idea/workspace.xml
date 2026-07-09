@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e070b34-8bff-4936-afca-9415ebfb2ac8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrdersDataIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/OrdersDataIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/W6D3TestDataBuilderStructureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/java/sdet/data/W6D3TestDataBuilderStructureTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V1__schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V1__schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V2__Seed_reference_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/src/test/resources/db/migration/V2__seed_reference_data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +42,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Gradle" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Gradle" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -104,7 +117,29 @@
       <recent name="C:\Users\304556\Desktop\gradle\SDET" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.OrdersDataIT">
+  <component name="RunManager" selected="Gradle.Gradle [build]">
+    <configuration name="Gradle [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="OrdersDataIT" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -153,30 +188,6 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="W6D3TestDataBuilderStructureTest.invalidBuilderDataFailsBeforeDatabaseSetup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Gradle" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;sdet.data.W6D3TestDataBuilderStructureTest.invalidBuilderDataFailsBeforeDatabaseSetup&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="W6D3TestDataBuilderStructureTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Selenium_FrameWork" />
       <extension name="coverage">
@@ -209,11 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Gradle [build]" />
         <item itemvalue="Gradle.OrdersDataIT" />
         <item itemvalue="Gradle.W6D3TestDataBuilderStructureTest" />
         <item itemvalue="JUnit.W6D3TestDataBuilderStructureTest (1)" />
         <item itemvalue="JUnit.W6D3TestDataBuilderStructureTest" />
-        <item itemvalue="Gradle.W6D3TestDataBuilderStructureTest.invalidBuilderDataFailsBeforeDatabaseSetup" />
       </list>
     </recent_temporary>
   </component>

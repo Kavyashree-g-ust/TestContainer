@@ -6,11 +6,11 @@ CREATE TABLE order_statuses (
 CREATE TABLE retail_orders (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     status VARCHAR(20) NOT NULL,
-    price BIGINT NOT NULL CHECK (price > 0),
-    date_on DATE NOT NULL,
+    total_paise BIGINT NOT NULL CHECK (total_paise > 0),
+    ordered_on DATE NOT NULL,
     refunded BOOLEAN NOT NULL DEFAULT FALSE,
-
-    CONSTRAINT fk_order_statuses
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_order_status
         FOREIGN KEY (status)
         REFERENCES order_statuses(code)
 );
@@ -18,10 +18,9 @@ CREATE TABLE retail_orders (
 CREATE TABLE retail_order_items (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_id BIGINT NOT NULL,
-    name VARCHAR(40) NOT NULL,
+    sku VARCHAR(40) NOT NULL,
     quantity INT NOT NULL CHECK (quantity > 0),
-
-    CONSTRAINT fk_order_items_order
+    CONSTRAINT fk_order
         FOREIGN KEY (order_id)
         REFERENCES retail_orders(id)
         ON DELETE CASCADE

@@ -2,53 +2,45 @@ plugins {
     java
 }
 
-group = "sdet"
-version = "0.1.0"
-
+group = "org.sdet"
+version = "1.0-SNAPSHOT"
 
 val seleniumVersion = "4.45.0"
 val junitVersion = "5.13.4"
 val cucumberVersion = "7.31.0"
-val testcontainersVersion="2.0.5"
-val slf4jVersion = "2.0.17"
-var flywayVersion="10.22.0"
-var mysqlVersion="8.4.0"
+val testcontainersVersion = "1.21.3"
+val flywayVersion = "11.11.2"
+val mysqlVersion = "8.4.0"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_22
-    targetCompatibility = JavaVersion.VERSION_22
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
 
-    // Selenium
     testImplementation("org.seleniumhq.selenium:selenium-java:$seleniumVersion")
 
-    // JUnit 5
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 
-    // Cucumber
     testImplementation("io.cucumber:cucumber-java:$cucumberVersion")
     testImplementation("io.cucumber:cucumber-junit-platform-engine:$cucumberVersion")
     testImplementation("io.cucumber:cucumber-picocontainer:$cucumberVersion")
 
-    // JUnit Platform Suite
     testImplementation("org.junit.platform:junit-platform-suite:1.13.4")
-    testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}")
+
     testImplementation(platform("org.testcontainers:testcontainers-bom:$testcontainersVersion"))
-    testImplementation("org.testcontainers:testcontainers-junit-jupiter:$testcontainersVersion")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:mysql")
+
     testImplementation("org.flywaydb:flyway-core:$flywayVersion")
-    testImplementation("org.testcontainers:testcontainers-mysql:${testcontainersVersion}")
-    testImplementation("org.flywaydb:flyway-mysql:${flywayVersion}")
-    testImplementation("com.mysql:mysql-connector-j:${mysqlVersion}")
+    testImplementation("org.flywaydb:flyway-mysql:$flywayVersion")
 
-
-    testImplementation("org.assertj:assertj-core:3.27.3")
+    testImplementation("com.mysql:mysql-connector-j:$mysqlVersion")
 }
 
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
-    options.release.set(22)
 }
 
 tasks.withType<Test>().configureEach {
@@ -82,8 +74,6 @@ tasks.withType<Test>().configureEach {
     }
 }
 
-tasks.test{
-    description = "Run the tests"
-    include("**/OrdersDataIT.class")
-    maxParallelForks = 1
+tasks.test {
+    useJUnitPlatform()
 }

@@ -3,6 +3,7 @@ package sdet.data;
 import java.time.LocalDate;
 
 public class OrderBuilder {
+
     private String sku = "SKU-RET-101";
     private int quantity = 1;
     private long totalPaise = 129_900;
