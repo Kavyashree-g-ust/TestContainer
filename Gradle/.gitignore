@@ -1,20 +1,12 @@
-../../Gradle/.gradle
-../SDET/Gradle/build/
+.gradle
+build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 .kotlin
-**/build/
-**/target/
-**/.gradle/
-
-.idea/
-**/.idea/
-*.jar
-*.log
-
 
 ### IntelliJ IDEA ###
+.idea
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
