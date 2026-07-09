@@ -18,13 +18,13 @@ public class OrderRepository {
     }
     public long save(Order order) {
         String orderSql = """
-                INSERT INTO retail_orders(status, total_paise, ordered_on, refunded)
-                VALUES (?, ?, ?, ?)
-                """;
+              INSERT INTO retail_orders(status, price, date_on, refunded)
+               VALUES (?, ?, ?, ?)
+               """;
         String itemSql = """
-                INSERT INTO retail_order_items(order_id, sku, quantity)
-                VALUES (?, ?, ?)
-                """;
+              INSERT INTO retail_order_items(order_id, name, quantity)
+              VALUES (?, ?, ?)
+              """;
         try (Connection connection = connection()) {
             connection.setAutoCommit(false);
             try {
