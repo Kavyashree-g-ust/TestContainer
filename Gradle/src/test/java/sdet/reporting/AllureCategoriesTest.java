@@ -1,5 +1,6 @@
 package sdet.reporting;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.SessionNotCreatedException;
@@ -63,5 +64,17 @@ public class AllureCategoriesTest {
     @Test
     void genericFailure(){
         fail("Random product defect");
+    }
+
+    @Test
+    @Disabled("Skipping this test for demo")
+    void skippedTest() {
+
+    }
+
+    @Test
+    @Disabled("Skipping this test for demo")
+    void skippedTestTwo() {
+
     }
 }
