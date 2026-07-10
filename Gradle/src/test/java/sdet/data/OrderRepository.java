@@ -62,6 +62,12 @@ public class OrderRepository {
 
             } catch (SQLException e) {
                 connection.rollback();
+
+                e.printStackTrace();
+                System.out.println("SQL State : " + e.getSQLState());
+                System.out.println("Error Code: " + e.getErrorCode());
+                System.out.println("Message   : " + e.getMessage());
+
                 throw new IllegalStateException("Could not save order test data", e);
             }
 
