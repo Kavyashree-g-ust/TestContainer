@@ -32,9 +32,13 @@ jobs:
         working-directory: Gradle
         run: chmod +x gradlew
 
-      - name: Run Integration Tests
+      - name: Run Reporting Tests
         working-directory: Gradle
-        run: ./gradlew test --tests "sdet.reporting.W6D4ReportinginsightsTest" --no-configuration-cache
+        run: |
+          ./gradlew test \
+            --tests "sdet.reporting.W6D4ReportinginsightsTest" \
+            --tests "sdet.reporting.AllureCategoriesTest" \
+            --no-configuration-cache
 
       - name: Checkout gh-pages branch
         if: always()
