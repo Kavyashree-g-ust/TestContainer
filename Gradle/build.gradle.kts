@@ -2,7 +2,7 @@ plugins {
     java
 }
 
-group = "org.sdet"
+group = "sdet"
 version = "1.0-SNAPSHOT"
 
 val seleniumVersion = "4.45.0"
@@ -11,11 +11,13 @@ val cucumberVersion = "7.31.0"
 val testcontainersVersion = "1.21.3"
 val flywayVersion = "11.11.2"
 val mysqlVersion = "8.4.0"
+val allureVersion = "2.29.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
 }
+
 
 dependencies {
 
@@ -37,6 +39,9 @@ dependencies {
     testImplementation("org.flywaydb:flyway-mysql:$flywayVersion")
 
     testImplementation("com.mysql:mysql-connector-j:$mysqlVersion")
+
+    testImplementation("io.qameta.allure:allure-cucumber7-jvm:${allureVersion}")
+    testImplementation("io.qameta.allure:allure-junit5:${allureVersion}")
 }
 
 tasks.withType<JavaCompile>().configureEach {

@@ -1,37 +1,69 @@
-name: Java CI
+name: Test Environment
 
 on:
   push:
-    branches: [ main, master ]
   pull_request:
-    branches: [ main, master ]
+
+permissions:
+  contents: write
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v5
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - name: Set up Java
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '22'
 
-      # Installs Gradle 8.10.2 on the runner and puts `gradle` on PATH,
-      # so the build does NOT need the committed gradle-wrapper.jar.
-      # (Zscaler blocks committing/uploading .jar files, so the wrapper
-      #  jar is missing from the repo; using an installed Gradle avoids it.)
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.10.2'
 
-      # Runs compile for the whole project, but only the Testcontainers +
-      # plain unit tests (org.testcontainers.sdet.*). The Selenium/Cucumber UI
-      # tests (org.selenium.sdet.*) need a running web app + browser, so they
-      # are excluded from CI. Run the full suite locally with `gradle test`.
-      - name: Run tests
-        run: gradle clean test --tests "org.testcontainers.sdet.*"
+      - name: Generate Gradle Wrapper
+        working-directory: gradle/Gradle
+        run: gradle wrapper
+
+      - name: Grant execute permission
+        working-directory: gradle/Gradle
+        run: chmod +x gradlew
+
+      - name: Run Integration Tests
+        working-directory: gradle/Gradle
+        run: ./gradlew test --tests "com.example.Selenium.tests.OrderTestIT" --no-configuration-cache
+
+      - name: Checkout gh-pages branch
+        if: always()
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Generate Allure Report
+        if: always()
+        uses: simple-elf/allure-report-action@master
+        with:
+          allure_results: gradle/Gradle/build/allure-results
+          allure_report: allure-report
+          gh_pages: gh-pages
+          allure_history: allure-history
+
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - name: Deploy Allure Report
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: allure-history
+          token: ${{ secrets.GITHUB_TOKEN }}
