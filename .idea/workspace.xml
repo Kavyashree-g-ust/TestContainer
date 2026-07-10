@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e070b34-8bff-4936-afca-9415ebfb2ac8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +109,7 @@
       <recent name="C:\Users\304556\Desktop\gradle\SDET" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Gradle [build]">
+  <component name="RunManager" selected="Gradle.W6D4ReportinginsightsTest">
     <configuration name="Gradle [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -181,6 +180,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="W6D4ReportinginsightsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;sdet.reporting.W6D4ReportinginsightsTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="W6D3TestDataBuilderStructureTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Selenium_FrameWork" />
       <extension name="coverage">
@@ -196,28 +219,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="W6D3TestDataBuilderStructureTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Selenium_FrameWork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sdet.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="sdet.data" />
-      <option name="MAIN_CLASS_NAME" value="sdet.data.W6D3TestDataBuilderStructureTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.W6D4ReportinginsightsTest" />
         <item itemvalue="Gradle.Gradle [build]" />
         <item itemvalue="Gradle.W6D3TestDataBuilderStructureTest" />
         <item itemvalue="Gradle.OrdersDataIT" />
         <item itemvalue="JUnit.W6D3TestDataBuilderStructureTest (1)" />
-        <item itemvalue="JUnit.W6D3TestDataBuilderStructureTest" />
       </list>
     </recent_temporary>
   </component>
