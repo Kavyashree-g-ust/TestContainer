@@ -1,23 +1,56 @@
 [
   {
-    "name": "Flaky tests",
-    "matchedStatuses": [
-      "failed",
-      "broken"
-    ],
+    "name": "Flaky Tests",
+    "matchedStatuses": ["failed", "broken"],
     "messageRegex": ".*(timeout|stale element|connection reset).*",
     "flaky": true
   },
   {
-    "name": "Test defects (broken)",
-    "matchedStatuses": [
-      "broken"
-    ]
+    "name": "Browser Launch Issues",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*SessionNotCreatedException.*"
   },
   {
-    "name": "Product defects",
-    "matchedStatuses": [
-      "failed"
-    ]
+    "name": "Element Not Found",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*NoSuchElementException.*"
+  },
+  {
+    "name": "Element Not Clickable",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*ElementClickInterceptedException.*"
+  },
+  {
+    "name": "Stale Element",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*StaleElementReferenceException.*"
+  },
+  {
+    "name": "Timeout Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*TimeoutException.*"
+  },
+  {
+    "name": "Database Errors",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*SQL.*"
+  },
+  {
+    "name": "Connection Problems",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*ConnectException.*"
+  },
+  {
+    "name": "Assertion Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Assertion.*"
+  },
+  {
+    "name": "Product Defects",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test Defects",
+    "matchedStatuses": ["broken"]
   }
 ]
