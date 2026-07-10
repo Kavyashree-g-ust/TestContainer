@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e070b34-8bff-4936-afca-9415ebfb2ac8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gradle/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Gradle/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +88,7 @@
     "Gradle.W6D3TestDataBuilderStructureTest.builderUsesSensibleDefaults.executor": "Run",
     "Gradle.W6D3TestDataBuilderStructureTest.executor": "Run",
     "Gradle.W6D3TestDataBuilderStructureTest.invalidBuilderDataFailsBeforeDatabaseSetup.executor": "Run",
+    "Gradle.W6D4ReportinginsightsTest.executor": "Run",
     "JUnit.W6D3TestDataBuilderStructureTest (1).executor": "Run",
     "JUnit.W6D3TestDataBuilderStructureTest.executor": "Run",
     "Maven.Selenium_FrameWork [clean].executor": "Run",

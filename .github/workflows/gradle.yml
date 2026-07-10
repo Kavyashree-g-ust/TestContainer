@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,16 +22,19 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.10.2'
+
+      - name: Make Gradle Wrapper Executable
+        working-directory: Gradle
+        run: chmod +x gradlew
 
       - name: Run Tests
-        run: gradle clean test
+        working-directory: Gradle
+        run: ./gradlew clean test
 
       - name: Checkout gh-pages
         if: always()
-        uses: actions/checkout@v4
         continue-on-error: true
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
@@ -41,8 +43,8 @@ jobs:
         if: always()
         uses: simple-elf/allure-report-action@master
         with:
-          allure_results: build/allure-results
-          allure_report: build/allure-report
+          allure_results: Gradle/build/allure-results
+          allure_report: Gradle/build/allure-report
           gh_pages: gh-pages
           allure_history: allure-history
 
@@ -51,5 +53,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: build/allure-report
-
+          path: Gradle/build/allure-report
