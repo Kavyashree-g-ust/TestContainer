@@ -33,7 +33,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Integration Tests
-        working-directory: gradle/Gradle
+        working-directory: Gradle
         run: ./gradlew test --tests "sdet.data.OrdersDataIT" --no-configuration-cache
 
       - name: Checkout gh-pages branch
