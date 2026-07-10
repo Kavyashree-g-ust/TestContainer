@@ -1,56 +1,79 @@
 [
   {
-    "name": "Flaky Tests",
-    "matchedStatuses": ["failed", "broken"],
+    "name": "Flaky tests",
+    "matchedStatuses": [
+      "failed",
+      "broken"
+    ],
     "messageRegex": ".*(timeout|stale element|connection reset).*",
     "flaky": true
   },
   {
+    "name": "Test defects (broken)",
+    "matchedStatuses": [
+      "broken"
+    ]
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": [
+      "failed"
+    ]
+  },
+  {
     "name": "Browser Launch Issues",
-    "matchedStatuses": ["broken"],
+    "matchedStatuses": [
+      "broken"
+    ],
     "messageRegex": ".*SessionNotCreatedException.*"
   },
   {
     "name": "Element Not Found",
-    "matchedStatuses": ["failed"],
+    "matchedStatuses": [
+      "failed"
+    ],
     "messageRegex": ".*NoSuchElementException.*"
   },
   {
     "name": "Element Not Clickable",
-    "matchedStatuses": ["failed"],
+    "matchedStatuses": [
+      "failed"
+    ],
     "messageRegex": ".*ElementClickInterceptedException.*"
   },
   {
     "name": "Stale Element",
-    "matchedStatuses": ["failed"],
+    "matchedStatuses": [
+      "failed"
+    ],
     "messageRegex": ".*StaleElementReferenceException.*"
   },
   {
     "name": "Timeout Failures",
-    "matchedStatuses": ["failed"],
+    "matchedStatuses": [
+      "failed"
+    ],
     "messageRegex": ".*TimeoutException.*"
   },
   {
     "name": "Database Errors",
-    "matchedStatuses": ["broken"],
-    "messageRegex": ".*SQL.*"
+    "matchedStatuses": [
+      "broken"
+    ],
+    "messageRegex": ".*(SQL|SQLException|SQLSyntaxErrorException).*"
   },
   {
     "name": "Connection Problems",
-    "matchedStatuses": ["broken"],
-    "messageRegex": ".*ConnectException.*"
+    "matchedStatuses": [
+      "broken"
+    ],
+    "messageRegex": ".*(ConnectException|Connection refused).*"
   },
   {
     "name": "Assertion Failures",
-    "matchedStatuses": ["failed"],
+    "matchedStatuses": [
+      "failed"
+    ],
     "messageRegex": ".*Assertion.*"
-  },
-  {
-    "name": "Product Defects",
-    "matchedStatuses": ["failed"]
-  },
-  {
-    "name": "Test Defects",
-    "matchedStatuses": ["broken"]
   }
 ]
