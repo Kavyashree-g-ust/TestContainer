@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"7e4462b31e750e3bca3d0c7887f20d1f","name":"sdet.reporting.AllureCategoriesTest","statistic":{"failed":2,"broken":8,"skipped":2,"passed":0,"unknown":0,"total":12}},{"uid":"82ddce55101370b485a0ec2057bef186","name":"sdet.reporting.W6D4ReportinginsightsTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}
